@@ -1,25 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { render } from 'react-dom';
+import Highcharts from 'highcharts';
+import HighchartsReact from 'highcharts-react-official';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const options = {
+  chart: {
+    type: 'spline'
+  },
+  title: {
+    text: 'My chart'
+  },
+  series: [
+    {
+      data: [1, 2, 1, 4, 3, 6]
+    }
+  ]
+};
+
+const App = () => (
+  <div >
+    <HighchartsReact  highcharts={Highcharts} options={options} />
+  </div>
+);
 
 export default App;
